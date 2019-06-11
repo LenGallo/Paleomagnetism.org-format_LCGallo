@@ -12,6 +12,7 @@
         x = z * stddev + mean
     End Sub
 
+
     Public Sub FshDev(ByVal k As Single, ByRef direction_rad As Dato_direccional_rad)
         'genera una direccion que pertenece a una poblacion de fishher de media "direction_rad" y kappa
         'from Pmagpy
