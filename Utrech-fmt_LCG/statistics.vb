@@ -29,6 +29,8 @@
         direction_rad.direccion_inclinacion = dec
         direction_rad.inclinacion = inc
 
+
+
     End Sub
 
     Public Function fc_fsh_0_90_k(k As Double) 'funcion que crea una direccion que pertenece a una poblacion de fishher de media "direction_rad" y kappa 
