@@ -15,6 +15,9 @@ Public Class GMAP_VGPS
 
     Public nombre As String
     Public xyz_sp As New Dato_eje
+
+    Public exp As Integer
+
     Public Dir_sp As New Dato_direccional_rad
     Public Dir_geo As New Dato_direccional_rad
     Public Dir_tc As New Dato_direccional_rad

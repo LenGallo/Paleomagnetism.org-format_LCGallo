@@ -49,7 +49,6 @@ Public Class Form1
                 extension = ".AF"
             End If
 
-
             Dim escribir As New StreamWriter(nombre_path + "\" + TextBox1.Text + extension)
             escribir.WriteLine("""Melisa"",""Argentina""") 'escribo el encabezado del todo el archivito
 
@@ -82,9 +81,11 @@ Public Class Form1
 
                     linea_tmp.paso_lavado = Val(paso)
 
-                    linea_tmp.xyz_sp.cos_alfa = Val(liena_temp.Substring(18, 6))
-                    linea_tmp.xyz_sp.cos_beta = Val(liena_temp.Substring(24, 6))
-                    linea_tmp.xyz_sp.cos_gama = Val(liena_temp.Substring(30, 6))
+                    linea_tmp.exp = Val(liena_temp.Substring(36, 4)) ' como funciona el substring ==========>>>>> el primer caracter es la posicion, empezando a contar de a uno de izq a derecha, el segundo es la cantidad de carcteres que lee
+
+                    linea_tmp.xyz_sp.cos_alfa = Val(liena_temp.Substring(18, 6)) * 10 ^ linea_tmp.exp
+                    linea_tmp.xyz_sp.cos_beta = Val(liena_temp.Substring(24, 6)) * 10 ^ linea_tmp.exp
+                    linea_tmp.xyz_sp.cos_gama = Val(liena_temp.Substring(30, 6)) * 10 ^ linea_tmp.exp
 
                     linea_tmp.intensidad = Math.Sqrt(linea_tmp.xyz_sp.cos_alfa * linea_tmp.xyz_sp.cos_alfa + linea_tmp.xyz_sp.cos_beta * linea_tmp.xyz_sp.cos_beta + linea_tmp.xyz_sp.cos_gama * linea_tmp.xyz_sp.cos_gama)
 
@@ -106,7 +107,6 @@ Public Class Form1
 
                     linea_tmp.A95 = Val(liena_temp.Substring(76, 4)) '* Math.PI / 180
 
-
                     lista_vgps.Add(linea_tmp)
 
                 Loop
@@ -114,6 +114,13 @@ Public Class Form1
                 'lograr que diga solo el nombre del especimen
                 escribir.WriteLine("""" + nombre_especimen + """" + "," + """" + """" + "," + CStr(0) + "," + CStr(90) + "," + CStr(1) + "," + CStr(lista_vgps(0).bedding.direccion_inclinacion * 180 / Math.PI) + "," + CStr(lista_vgps(0).bedding.inclinacion * 180 / Math.PI))
 
+                'minimo exponente de la lista de exponentes
+                Dim min As Integer = lista_vgps(0).exp
+                For t = 0 To lista_vgps.Count - 1
+                    If min > lista_vgps(t).exp Then
+                        min = lista_vgps(t).exp
+                    End If
+                Next t
 
                 For i = 0 To lista_vgps.Count - 1
 
@@ -129,13 +136,12 @@ Public Class Form1
 
                     statistics.direccion_a_dato_eje_RADIANES(direccion_tmp, dato_eje_tmp)
 
-                    dato_eje_tmp.cos_alfa = dato_eje_tmp.cos_alfa * lista_vgps(i).intensidad
-                    dato_eje_tmp.cos_beta = dato_eje_tmp.cos_beta * lista_vgps(i).intensidad
-                    dato_eje_tmp.cos_gama = dato_eje_tmp.cos_gama * lista_vgps(i).intensidad
-
+                    dato_eje_tmp.cos_alfa = dato_eje_tmp.cos_alfa * lista_vgps(i).intensidad * 10 ^ min 'tengo que escalar al valor mas Chico o grande de los exponented de la lista
+                    dato_eje_tmp.cos_beta = dato_eje_tmp.cos_beta * lista_vgps(i).intensidad * 10 ^ min
+                    dato_eje_tmp.cos_gama = dato_eje_tmp.cos_gama * lista_vgps(i).intensidad * 10 ^ min
 
                     'tomar el paso nomas y transformar NRM a cero
-                    escribir.WriteLine(CStr(lista_vgps(i).paso_lavado) + "," + CStr(dato_eje_tmp.cos_gama) + "," + CStr(dato_eje_tmp.cos_beta) + "," + CStr(dato_eje_tmp.cos_alfa) + ",1,""date"",""time""")
+                    escribir.WriteLine(CStr(lista_vgps(i).paso_lavado) + "," + CStr(dato_eje_tmp.cos_gama) + "," + CStr(dato_eje_tmp.cos_beta) + "," + CStr(dato_eje_tmp.cos_alfa) + ",1,""date"",""time""")          '+ CStr(dato_eje_tmp.cos_alfa) + ",1,""date"",""time""")
 
                 Next i
 
@@ -147,10 +153,6 @@ Public Class Form1
             escribir.Close()
 
         End If
-
-
-
-
 
     End Sub
 
