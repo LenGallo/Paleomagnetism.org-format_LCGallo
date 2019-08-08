@@ -31,7 +31,7 @@ Partial Class Form1
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(93, 40)
+        Me.Button2.Location = New System.Drawing.Point(110, 65)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 76)
         Me.Button2.TabIndex = 1
@@ -41,7 +41,7 @@ Partial Class Form1
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(139, 122)
+        Me.RadioButton2.Location = New System.Drawing.Point(156, 147)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(38, 17)
         Me.RadioButton2.TabIndex = 2
@@ -52,7 +52,7 @@ Partial Class Form1
         '
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Checked = True
-        Me.RadioButton1.Location = New System.Drawing.Point(93, 122)
+        Me.RadioButton1.Location = New System.Drawing.Point(110, 147)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(40, 17)
         Me.RadioButton1.TabIndex = 2
@@ -62,7 +62,7 @@ Partial Class Form1
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(68, 173)
+        Me.TextBox1.Location = New System.Drawing.Point(85, 198)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(126, 20)
         Me.TextBox1.TabIndex = 3
@@ -71,7 +71,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(67, 154)
+        Me.Label1.Location = New System.Drawing.Point(84, 179)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(127, 13)
         Me.Label1.TabIndex = 4
@@ -81,14 +81,14 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(270, 227)
+        Me.ClientSize = New System.Drawing.Size(294, 287)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.RadioButton1)
         Me.Controls.Add(Me.RadioButton2)
         Me.Controls.Add(Me.Button2)
         Me.Name = "Form1"
-        Me.Text = "UTRECHT-fmt-LCG"
+        Me.Text = "UTRECHT-format -  - - LCGallo"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

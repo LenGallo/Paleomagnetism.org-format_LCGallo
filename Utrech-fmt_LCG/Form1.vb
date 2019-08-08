@@ -136,7 +136,7 @@ Public Class Form1
 
                     statistics.direccion_a_dato_eje_RADIANES(direccion_tmp, dato_eje_tmp)
 
-                    dato_eje_tmp.cos_alfa = dato_eje_tmp.cos_alfa * lista_vgps(i).intensidad * 10 ^ -min 'tengo que escalar al valor mas Chico o grande de los exponented de la lista
+                    dato_eje_tmp.cos_alfa = dato_eje_tmp.cos_alfa * lista_vgps(i).intensidad * 10 ^ -min 'tengo que escalar al valor mas Chico o grande de los exponented de la lista - loe scale al mas chico (escuchar comentarios)
                     dato_eje_tmp.cos_beta = dato_eje_tmp.cos_beta * lista_vgps(i).intensidad * 10 ^ -min
                     dato_eje_tmp.cos_gama = dato_eje_tmp.cos_gama * lista_vgps(i).intensidad * 10 ^ -min
 
